@@ -16,7 +16,7 @@ class DishesMapper {
         price = dto.price,
         description = dto.description,
         image_url = dto.image_url,
-        tegs = dto.tegs,
+        tags = dto.tegs,
         weight = dto.weight
     )
 
