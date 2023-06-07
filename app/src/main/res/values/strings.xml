@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">RecipesApp</string>
+
+    <!--NAVIGATION-->
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="cart">Cart</string>
+    <string name="account">Account</string>
+
+
 </resources>
