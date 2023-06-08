@@ -12,12 +12,23 @@ import com.most4dev.recipesapp.domain.usecases.RemoveDishUseCase
 import kotlinx.coroutines.launch
 
 class CartViewModel(
-    private val getListCartUseCase: GetListCartUseCase,
+    getListCartUseCase: GetListCartUseCase,
     private val addDishUseCase: AddDishUseCase,
     private val removeDishUseCase: RemoveDishUseCase,
 ) : ViewModel() {
 
+    private var _totalCount = MutableLiveData<Int>()
+    val totalCount: LiveData<Int> = _totalCount
+
     val listCart = getListCartUseCase()
+
+    fun calculateTotalPrice(list: List<DishEntity>){
+        var result = 0
+        for (item in list){
+            result += (item.price) * item.count
+        }
+        _totalCount.value = result
+    }
 
     fun plusCountDish(itemDish: DishEntity){
         viewModelScope.launch {

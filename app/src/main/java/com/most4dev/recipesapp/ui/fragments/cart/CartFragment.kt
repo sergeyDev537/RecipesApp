@@ -2,6 +2,7 @@ package com.most4dev.recipesapp.ui.fragments.cart
 
 import android.os.Bundle
 import android.view.View
+import com.most4dev.recipesapp.R
 import com.most4dev.recipesapp.databinding.FragmentCartBinding
 import com.most4dev.recipesapp.ui.adapters.CartAdapter
 import com.most4dev.recipesapp.ui.base.BaseFragment
@@ -28,6 +29,13 @@ class CartFragment : BaseFragment<FragmentCartBinding>(FragmentCartBinding::infl
     private fun CartViewModel.setObserves() {
         listCart.observe(viewLifecycleOwner){
             adapter.submitList(it)
+            calculateTotalPrice(it)
+        }
+        totalCount.observe(viewLifecycleOwner){
+            binding.btnPayment.text = String.format(
+                getString(R.string.payment_x_money),
+                it
+            )
         }
     }
 

@@ -15,6 +15,9 @@
     <string name="add_favorite">Add favorite</string>
     <string name="add_dish_to_cart">Add dish to cart</string>
 
+    <!--CART-->
+    <string name="payment_x_money">Payment %1$s ₽</string>
+
 
     <!--CONTENT DESCRIPTION-->
     <string name="cd_favorite">Add favorite</string>
