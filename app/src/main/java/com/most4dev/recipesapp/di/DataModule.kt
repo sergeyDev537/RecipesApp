@@ -8,6 +8,7 @@ import com.most4dev.recipesapp.data.mappers.DishesMapper
 import com.most4dev.recipesapp.data.network.api.ApiFactory
 import com.most4dev.recipesapp.domain.repositories.ProfileRepository
 import com.most4dev.recipesapp.domain.repositories.RecipesRepository
+import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 
 val dataModule = module {
@@ -43,7 +44,7 @@ val dataModule = module {
     }
 
     single<ProfileRepository> {
-        ProfileRepositoryImpl()
+        ProfileRepositoryImpl(context = androidContext())
     }
 
 }

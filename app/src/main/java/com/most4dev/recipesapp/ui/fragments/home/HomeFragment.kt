@@ -9,10 +9,14 @@ import com.most4dev.recipesapp.R
 import com.most4dev.recipesapp.databinding.FragmentHomeBinding
 import com.most4dev.recipesapp.ui.adapters.CategoriesAdapter
 import com.most4dev.recipesapp.ui.base.BaseFragment
+import com.most4dev.recipesapp.ui.toolbar.TypeToolbar
 import com.most4dev.recipesapp.utils.showSnackbar
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate) {
+class HomeFragment : BaseFragment<FragmentHomeBinding>(
+    FragmentHomeBinding::inflate,
+    TypeToolbar.LOCATION_TOOLBAR
+) {
 
     private val viewModel: HomeViewModel by viewModel()
 
@@ -30,12 +34,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         }
     }
 
-    private fun HomeViewModel.setObserves(){
-        listCategories.observe(viewLifecycleOwner){
+    private fun HomeViewModel.setObserves() {
+        listCategories.observe(viewLifecycleOwner) {
             adapter.submitList(it)
             binding.showList()
         }
-        listCategoriesError.observe(viewLifecycleOwner){
+        listCategoriesError.observe(viewLifecycleOwner) {
             binding.root.showSnackbar(it)
         }
     }
@@ -44,11 +48,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         rvCategories.adapter = adapter
 
         adapter.clickCategory = {
-            findNavController().navigate(R.id.action_nav_bottom_home_to_listDishesFragment)
+            findNavController().navigate(
+                HomeFragmentDirections.actionNavBottomHomeToListDishesFragment(it.name)
+            )
         }
     }
 
-    private fun FragmentHomeBinding.showList(){
+    private fun FragmentHomeBinding.showList() {
         pbCategories.isGone = true
         rvCategories.isVisible = true
     }
