@@ -1,5 +1,6 @@
 package com.most4dev.recipesapp.di
 
+import com.most4dev.recipesapp.domain.usecases.AddDishUseCase
 import com.most4dev.recipesapp.domain.usecases.GetCategoriesRecipesUseCase
 import com.most4dev.recipesapp.domain.usecases.GetDataUserUseCase
 import com.most4dev.recipesapp.domain.usecases.GetListDishesUseCase
@@ -23,6 +24,10 @@ val domainModule = module {
 
     factory {
         SelectTagUseCase(recipesRepository = get())
+    }
+
+    factory {
+        AddDishUseCase(recipesRepository = get())
     }
 
     factory {

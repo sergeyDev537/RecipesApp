@@ -19,14 +19,4 @@ data class CartDishesDto(
     @ColumnInfo(name = "weight") val weight: Int,
     @ColumnInfo(name = "tegs") val tegs: String,
     @ColumnInfo(name = "image_url") val image_url: String,
-){
-    @TypeConverter
-    fun restoreList(listOfString: String?): List<String?>? {
-        return Gson().fromJson(listOfString, object : TypeToken<List<String?>?>() {}.type)
-    }
-
-    @TypeConverter
-    fun saveList(listOfString: List<String?>?): String? {
-        return Gson().toJson(listOfString)
-    }
-}
+)

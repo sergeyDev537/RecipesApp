@@ -44,6 +44,10 @@
         android:name="com.most4dev.recipesapp.ui.fragments.details.ItemDishDialog"
         tools:layout="@layout/dialog_item_dish">
 
+        <argument
+            android:name="dish"
+            app:argType="com.most4dev.recipesapp.domain.entities.DishEntity" />
+
     </dialog>
 
 </navigation>

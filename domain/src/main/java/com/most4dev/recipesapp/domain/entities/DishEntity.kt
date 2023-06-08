@@ -12,4 +12,5 @@ data class DishEntity(
     val image_url: String?,
     val tags: List<String>,
     val weight: Int,
+    val count: Int
 ) : Parcelable

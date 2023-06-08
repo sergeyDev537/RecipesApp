@@ -62,7 +62,13 @@ class ListDishesFragment :
         rvDishes.adapter = dishAdapter
         rvDishes.addItemDecoration(MarginItemDecorationGrid(8))
         dishAdapter.clickDish = {
-
+            it?.let {dish ->
+                findNavController().navigate(
+                    ListDishesFragmentDirections.actionListDishesFragmentToItemDishDialog(
+                        dish
+                    )
+                )
+            }
         }
     }
 

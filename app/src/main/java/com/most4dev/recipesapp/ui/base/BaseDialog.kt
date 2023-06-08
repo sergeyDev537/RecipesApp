@@ -7,9 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import androidx.viewbinding.ViewBinding
+import com.most4dev.recipesapp.R
 
 abstract class BaseDialogFragment<VB : ViewBinding>(
-    private val inflate: Inflate<VB>
+    private val inflate: Inflate<VB>,
 ) : DialogFragment() {
 
     private var _binding: VB? = null
@@ -32,13 +33,8 @@ abstract class BaseDialogFragment<VB : ViewBinding>(
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-    }
-
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val dialog = Dialog(requireContext())
+        val dialog = Dialog(requireContext(), R.style.AppTheme_Dialog_MyDialogTheme)
         return dialog
     }
 

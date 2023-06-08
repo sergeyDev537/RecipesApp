@@ -1,5 +1,8 @@
 package com.most4dev.recipesapp.data.impl
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.map
+import com.most4dev.recipesapp.data.db.dao.RecipesDao
 import com.most4dev.recipesapp.data.mappers.CategoryMapper
 import com.most4dev.recipesapp.data.mappers.DishesMapper
 import com.most4dev.recipesapp.data.network.api.ApiService
@@ -7,18 +10,12 @@ import com.most4dev.recipesapp.domain.entities.CategoryRecipesEntity
 import com.most4dev.recipesapp.domain.entities.DishEntity
 import com.most4dev.recipesapp.domain.entities.TagEntity
 import com.most4dev.recipesapp.domain.repositories.RecipesRepository
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.withContext
-import java.text.FieldPosition
-import kotlin.coroutines.Continuation
-import kotlin.coroutines.suspendCoroutine
 
 class RecipesRepositoryImpl(
     private val apiService: ApiService,
     private val categoryMapper: CategoryMapper,
     private val dishesMapper: DishesMapper,
+    private val recipesDao: RecipesDao,
 ) : RecipesRepository {
 
     var listDishes = mutableListOf<DishEntity>()
@@ -46,6 +43,31 @@ class RecipesRepositoryImpl(
         val listTags = selectItem(position)
         val listDishes = updateListDishes(listTags[position].name)
         return Pair(listTags, listDishes)
+    }
+
+    override fun getCartListDishes(): LiveData<List<DishEntity>> =
+        recipesDao.getCartListDishes().map { listCartDishes ->
+            listCartDishes.map { itemCartDishes ->
+                dishesMapper.mapDishesDbToEntity(itemCartDishes)
+            }
+        }
+
+    override suspend fun addDish(dish: DishEntity) {
+        val listCart = getCartListDishes().value
+        val containDish = checkDish(dish.id)
+        containDish?.let {
+            recipesDao.addDish(dishesMapper.mapEntityToDishesDb(dish.copy(count = it.count + 1)))
+        } ?: run {
+            recipesDao.addDish(dishesMapper.mapEntityToDishesDb(dish))
+        }
+    }
+
+    private suspend fun checkDish(id: Int): DishEntity? {
+        return recipesDao.checkDish(id)?.let {
+            dishesMapper.mapDishesDbToEntity(it)
+        } ?: kotlin.run {
+            null
+        }
     }
 
     private fun getListTags(): List<TagEntity> {

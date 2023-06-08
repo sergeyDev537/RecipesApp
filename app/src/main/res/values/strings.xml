@@ -9,6 +9,15 @@
 
     <!--DISHES-->
     <string name="not_found_element">Not found element</string>
+    <string name="add_to_cart">Add to cart</string>
+    <string name="price">%1$s ₽</string>
+    <string name="weight">%1$s g</string>
+    <string name="add_favorite">Add favorite</string>
+    <string name="add_dish_to_cart">Add dish to cart</string>
 
+
+    <!--CONTENT DESCRIPTION-->
+    <string name="cd_favorite">Add favorite</string>
+    <string name="cd_close">Close dialog</string>
 
 </resources>
