@@ -1,8 +1,7 @@
 package com.most4dev.recipesapp.data.network.api
 
-import com.most4dev.recipesapp.data.network.dto.CategoriesRecipesDto
-import com.most4dev.recipesapp.data.network.dto.DishesDto
 import com.most4dev.recipesapp.data.network.dto.ListCategoriesDto
+import com.most4dev.recipesapp.data.network.dto.ListDishesDto
 import retrofit2.Response
 import retrofit2.http.GET
 
@@ -12,6 +11,6 @@ interface ApiService {
     suspend fun getCategories(): Response<ListCategoriesDto>
 
     @GET("c7a508f2-a904-498a-8539-09d96785446e")
-    suspend fun getDishes(): Response<List<DishesDto>>
+    suspend fun getDishes(): Response<ListDishesDto>
 
 }

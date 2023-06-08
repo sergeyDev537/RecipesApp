@@ -9,7 +9,7 @@ data class DishEntity(
     val name: String,
     val price: Int,
     val description: String,
-    val image_url: String,
+    val image_url: String?,
     val tags: List<String>,
     val weight: Int,
 ) : Parcelable

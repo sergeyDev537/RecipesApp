@@ -2,11 +2,16 @@ package com.most4dev.recipesapp.domain.repositories
 
 import com.most4dev.recipesapp.domain.entities.CategoryRecipesEntity
 import com.most4dev.recipesapp.domain.entities.DishEntity
+import com.most4dev.recipesapp.domain.entities.TagEntity
 
 interface RecipesRepository {
 
-    suspend fun getCategoriesRecipes() : List<CategoryRecipesEntity>
+    suspend fun getCategoriesRecipes() : MutableList<CategoryRecipesEntity>
 
-    suspend fun getListDishes() : List<DishEntity>
+    suspend fun getListDishes() : MutableList<DishEntity>
+
+    suspend fun getTags() : MutableList<TagEntity>
+
+    fun selectTag(position: Int): Pair<MutableList<TagEntity>, MutableList<DishEntity>>
 
 }
