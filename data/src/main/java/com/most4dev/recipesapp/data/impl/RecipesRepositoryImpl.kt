@@ -15,7 +15,7 @@ class RecipesRepositoryImpl(
 
     override suspend fun getCategoriesRecipes(): List<CategoryRecipesEntity> {
         return apiService.getCategories().body()?.let {
-            categoryMapper.mapListCategoriesDtoToEntity(it)
+            categoryMapper.mapListCategoriesDtoToEntity(it.сategories)
         } ?: listOf()
     }
 

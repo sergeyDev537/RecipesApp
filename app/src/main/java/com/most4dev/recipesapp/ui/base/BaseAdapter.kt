@@ -1,9 +1,7 @@
 package com.most4dev.recipesapp.ui.base
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -23,10 +21,6 @@ abstract class BaseAdapter<T, VB : ViewBinding>(
     }
 }
 ) {
-    var item: T? = null
-    var binding: VB? = null
-    var context: Context? = null
-    var root: View? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
         val binding: ViewBinding = inflate.invoke(
@@ -35,12 +29,5 @@ abstract class BaseAdapter<T, VB : ViewBinding>(
             false
         )
         return BaseViewHolder(binding)
-    }
-
-    override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
-        item = getItem(position)
-        binding = (holder.binding) as VB
-        root = binding?.root
-        context = root?.context
     }
 }
