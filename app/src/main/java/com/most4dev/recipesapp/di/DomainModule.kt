@@ -3,8 +3,10 @@ package com.most4dev.recipesapp.di
 import com.most4dev.recipesapp.domain.usecases.AddDishUseCase
 import com.most4dev.recipesapp.domain.usecases.GetCategoriesRecipesUseCase
 import com.most4dev.recipesapp.domain.usecases.GetDataUserUseCase
+import com.most4dev.recipesapp.domain.usecases.GetListCartUseCase
 import com.most4dev.recipesapp.domain.usecases.GetListDishesUseCase
 import com.most4dev.recipesapp.domain.usecases.GetTagsUseCase
+import com.most4dev.recipesapp.domain.usecases.RemoveDishUseCase
 import com.most4dev.recipesapp.domain.usecases.SelectTagUseCase
 import org.koin.dsl.module
 
@@ -28,6 +30,12 @@ val domainModule = module {
 
     factory {
         AddDishUseCase(recipesRepository = get())
+    }
+    factory {
+        GetListCartUseCase(recipesRepository = get())
+    }
+    factory {
+        RemoveDishUseCase(recipesRepository = get())
     }
 
     factory {

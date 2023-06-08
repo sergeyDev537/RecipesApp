@@ -53,12 +53,23 @@ class RecipesRepositoryImpl(
         }
 
     override suspend fun addDish(dish: DishEntity) {
-        val listCart = getCartListDishes().value
         val containDish = checkDish(dish.id)
         containDish?.let {
             recipesDao.addDish(dishesMapper.mapEntityToDishesDb(dish.copy(count = it.count + 1)))
         } ?: run {
             recipesDao.addDish(dishesMapper.mapEntityToDishesDb(dish))
+        }
+    }
+
+    override suspend fun removeDish(dish: DishEntity) {
+        val containDish = checkDish(dish.id)
+        containDish?.let {
+            if (it.count > 1){
+                recipesDao.addDish(dishesMapper.mapEntityToDishesDb(dish.copy(count = it.count - 1)))
+            }
+            else{
+                recipesDao.removeDish(dishesMapper.mapEntityToDishesDb(it))
+            }
         }
     }
 
