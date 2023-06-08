@@ -37,7 +37,8 @@ val dataModule = module {
         RecipesRepositoryImpl(
             apiService = get(),
             categoryMapper = get(),
-            dishesMapper = get()
+            dishesMapper = get(),
+            recipesDao = get()
         )
     }
 

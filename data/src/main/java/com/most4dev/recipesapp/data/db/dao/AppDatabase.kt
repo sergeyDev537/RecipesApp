@@ -9,7 +9,7 @@ import com.most4dev.recipesapp.data.db.dto.CartDishesDto
 @Database(entities = [CartDishesDto::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
-    abstract fun accountDao(): AccountDao
+    abstract fun accountDao(): RecipesDao
 
     companion object {
         private var INSTANCE: AppDatabase? = null
