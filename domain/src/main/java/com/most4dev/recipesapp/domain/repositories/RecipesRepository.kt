@@ -19,4 +19,6 @@ interface RecipesRepository {
 
     suspend fun addDish(dish: DishEntity)
 
+    suspend fun removeDish(dish: DishEntity)
+
 }
