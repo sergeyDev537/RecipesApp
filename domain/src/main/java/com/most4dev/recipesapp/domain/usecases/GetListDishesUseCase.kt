@@ -5,7 +5,7 @@ import com.most4dev.recipesapp.domain.repositories.RecipesRepository
 
 class GetListDishesUseCase(private val recipesRepository: RecipesRepository) {
 
-    suspend operator fun invoke(): List<DishEntity> {
+    suspend operator fun invoke(): MutableList<DishEntity> {
         return recipesRepository.getListDishes()
     }
 

@@ -4,6 +4,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="back_category">#3364E0</color>
     <color name="bottom_bar_default_text_color">#A5A9B2</color>
-
-
+    <color name="back_tags">#F8F7F5</color>
 </resources>
