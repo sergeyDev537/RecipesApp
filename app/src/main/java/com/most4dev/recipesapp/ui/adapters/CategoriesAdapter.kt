@@ -13,15 +13,19 @@ class CategoriesAdapter :
     var clickCategory: ((CategoryRecipesEntity?) -> Unit)? = null
 
     override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
-        context?.let {
-            binding?.ivCategory?.let { imageView ->
-                Glide.with(it).load(item?.imageUrl)
-                    .centerCrop()
-                    .placeholder(R.drawable.no_image_placeholder)
-                    .into(imageView)
-            }
-        }
-        root?.setOnClickListener {
+        val item = getItem(position)
+        val binding = holder.binding as ItemCategoryBinding
+        val root = binding.root
+        val context = root.context
+
+        binding.tvNameCategory.text = item.name
+
+        Glide.with(context).load(item?.imageUrl)
+            .centerCrop()
+            .placeholder(R.drawable.no_image_placeholder)
+            .into(binding.ivCategory)
+
+        root.setOnClickListener {
             clickCategory?.invoke(item)
         }
 
