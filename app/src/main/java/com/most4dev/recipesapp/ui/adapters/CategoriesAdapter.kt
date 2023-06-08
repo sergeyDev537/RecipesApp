@@ -10,7 +10,7 @@ import com.most4dev.recipesapp.ui.base.BaseViewHolder
 class CategoriesAdapter :
     BaseAdapter<CategoryRecipesEntity, ItemCategoryBinding>(ItemCategoryBinding::inflate) {
 
-    var clickCategory: ((CategoryRecipesEntity?) -> Unit)? = null
+    var clickCategory: ((CategoryRecipesEntity) -> Unit)? = null
 
     override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
         val item = getItem(position)

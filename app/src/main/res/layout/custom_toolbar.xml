@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.appbar.MaterialToolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="?actionBarSize"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center_horizontal"
+    app:menu="@menu/menu_toolbar"
+    app:title="City"
+    app:subtitle="08 July"
+    app:subtitleTextColor="@color/color_subtitle"
+    app:titleTextColor="@color/black">
+
+</com.google.android.material.appbar.MaterialToolbar>

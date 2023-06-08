@@ -37,6 +37,9 @@
         <action
             android:id="@+id/action_listDishesFragment_to_itemDishDialog"
             app:destination="@id/itemDishDialog" />
+        <argument
+            android:name="category"
+            app:argType="string" />
     </fragment>
 
     <dialog

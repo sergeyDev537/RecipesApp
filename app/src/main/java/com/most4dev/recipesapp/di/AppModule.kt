@@ -1,5 +1,6 @@
 package com.most4dev.recipesapp.di
 
+import com.most4dev.recipesapp.ui.activity.MainViewModel
 import com.most4dev.recipesapp.ui.fragments.cart.CartViewModel
 import com.most4dev.recipesapp.ui.fragments.details.ItemDishViewModel
 import com.most4dev.recipesapp.ui.fragments.home.HomeViewModel
@@ -34,6 +35,12 @@ val appModule = module {
             getListCartUseCase = get(),
             addDishUseCase = get(),
             removeDishUseCase = get()
+        )
+    }
+
+    viewModel {
+        MainViewModel(
+            getDataUserUseCase = get()
         )
     }
 
