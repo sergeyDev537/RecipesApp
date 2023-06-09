@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/iv_dish"
+        android:layout_width="62dp"
+        android:layout_height="62dp"
+        android:background="@color/back_tags"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/cornerImageView" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@id/iv_dish"
+        app:layout_constraintEnd_toStartOf="@id/ll_counter"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@id/iv_dish"
+        app:layout_constraintTop_toTopOf="@id/iv_dish">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_name_item_dish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/sf_pro"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintStart_toStartOf="@id/guideline_start"
+            app:layout_constraintTop_toBottomOf="@id/iv_item_dish"
+            tools:text="Рис с овощами" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_price_dish"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/sf_pro"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/tv_name_item_dish"
+                tools:text="599" />
+
+            <View
+                android:id="@+id/view_dot"
+                android:layout_width="3dp"
+                android:layout_height="3dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="2dp"
+                android:background="@drawable/dot"
+                app:layout_constraintBottom_toBottomOf="@id/tv_price_dish"
+                app:layout_constraintStart_toEndOf="@id/tv_price_dish"
+                app:layout_constraintTop_toTopOf="@id/tv_price_dish" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_weight_dish"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="2dp"
+                android:fontFamily="@font/sf_pro"
+                android:textColor="@color/weight"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@id/tv_price_dish"
+                app:layout_constraintStart_toEndOf="@id/view_dot"
+                app:layout_constraintTop_toTopOf="@id/tv_price_dish"
+                tools:text="599" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_counter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <include
+            android:id="@+id/layout_counter"
+            layout="@layout/counter"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

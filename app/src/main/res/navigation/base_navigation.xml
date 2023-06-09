@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/base_navigation"
+    app:startDestination="@id/nav_bottom_home">
+
+    <fragment
+        android:id="@+id/nav_bottom_home"
+        android:name="com.most4dev.recipesapp.ui.fragments.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_nav_bottom_home_to_listDishesFragment"
+            app:destination="@id/listDishesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_bottom_search"
+        android:name="com.most4dev.recipesapp.ui.fragments.search.SearchFragment"
+        android:label="SearchFragment"
+        tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/nav_bottom_cart"
+        android:name="com.most4dev.recipesapp.ui.fragments.cart.CartFragment"
+        android:label="CartFragment"
+        tools:layout="@layout/fragment_cart" />
+    <fragment
+        android:id="@+id/nav_bottom_account"
+        android:name="com.most4dev.recipesapp.ui.fragments.account.AccountFragment"
+        android:label="AccountFragment"
+        tools:layout="@layout/fragment_account" />
+    <fragment
+        android:id="@+id/listDishesFragment"
+        android:name="com.most4dev.recipesapp.ui.fragments.listDishes.ListDishesFragment"
+        android:label="ListDishesFragment"
+        tools:layout="@layout/fragment_list_dishes" >
+        <action
+            android:id="@+id/action_listDishesFragment_to_itemDishDialog"
+            app:destination="@id/itemDishDialog" />
+        <argument
+            android:name="category"
+            app:argType="string" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/itemDishDialog"
+        android:name="com.most4dev.recipesapp.ui.fragments.details.ItemDishDialog"
+        tools:layout="@layout/dialog_item_dish">
+
+        <argument
+            android:name="dish"
+            app:argType="com.most4dev.recipesapp.domain.entities.DishEntity" />
+
+    </dialog>
+
+</navigation>

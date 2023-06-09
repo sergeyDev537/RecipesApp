@@ -2,4 +2,11 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="back_category">#3364E0</color>
+    <color name="bottom_bar_default_text_color">#A5A9B2</color>
+    <color name="back_tags">#F8F7F5</color>
+    <color name="weight">#999999</color>
+    <color name="black_65">#65000000</color>
+    <color name="back_counter">#EFEEEC</color>
+    <color name="color_subtitle">#808080</color>
 </resources>

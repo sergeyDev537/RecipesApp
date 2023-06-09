@@ -1,3 +1,34 @@
 <resources>
     <string name="app_name">RecipesApp</string>
+
+    <!--NAVIGATION-->
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="cart">Cart</string>
+    <string name="account">Account</string>
+    <string name="profile">Profile</string>
+
+    <!--DISHES-->
+    <string name="add_to_cart">Add to cart</string>
+    <string name="price">%1$s ₽</string>
+    <string name="weight">%1$s g</string>
+    <string name="add_favorite">Add favorite</string>
+    <string name="add_dish_to_cart">Add dish to cart</string>
+    <string name="dishes">Dishes</string>
+
+    <!--CART-->
+    <string name="payment_x_money">Payment %1$s ₽</string>
+
+
+    <!--CONTENT DESCRIPTION-->
+    <string name="cd_favorite">Add favorite</string>
+    <string name="cd_close">Close dialog</string>
+
+
+    <!--PERMISSIONS-->
+    <string name="permission_denied">Permissions denied</string>
+
+    <!--ERRORS-->
+    <string name="not_found_element">Not found element</string>
+
 </resources>
