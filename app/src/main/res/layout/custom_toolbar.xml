@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.appbar.MaterialToolbar xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="?actionBarSize"
     android:gravity="center_horizontal"
     app:menu="@menu/menu_toolbar"
-    app:subtitle="08 July"
     app:subtitleTextColor="@color/color_subtitle"
-    app:title="City"
-    app:titleTextColor="@color/black">
+    app:titleTextColor="@color/black"
+    tools:subtitle="08 July"
+    tools:title="City">
 
 </com.google.android.material.appbar.MaterialToolbar>

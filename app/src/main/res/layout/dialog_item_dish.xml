@@ -41,8 +41,8 @@
                 android:contentDescription="@string/cd_favorite"
                 android:elevation="6dp"
                 android:src="@drawable/ic_favorite"
-                app:layout_constraintEnd_toStartOf="@+id/btn_close"
-                app:layout_constraintTop_toTopOf="@+id/iv_item_dish"
+                app:layout_constraintEnd_toStartOf="@id/btn_close"
+                app:layout_constraintTop_toTopOf="@id/iv_item_dish"
                 app:shapeAppearanceOverlay="@style/cornerImageView" />
 
             <androidx.appcompat.widget.AppCompatImageButton
@@ -56,7 +56,7 @@
                 android:elevation="6dp"
                 android:src="@drawable/ic_close"
                 app:layout_constraintEnd_toEndOf="@id/guideline_end"
-                app:layout_constraintTop_toTopOf="@+id/iv_item_dish"
+                app:layout_constraintTop_toTopOf="@id/iv_item_dish"
                 app:shapeAppearanceOverlay="@style/cornerImageView" />
 
             <com.google.android.material.imageview.ShapeableImageView
