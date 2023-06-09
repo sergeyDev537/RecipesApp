@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--ERRORS-->
+    <string name="unknown_city">Неизвестный город</string>
+</resources>
