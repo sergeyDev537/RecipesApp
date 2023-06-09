@@ -19,28 +19,34 @@ class CartAdapter :
         val root = binding.root
         val context = root.context
 
-        Glide.with(context).load(item?.image_url)
-            .centerCrop()
-            .placeholder(R.drawable.no_image_placeholder)
-            .into(binding.ivDish)
+        binding.apply {
+            Glide.with(context).load(item?.image_url)
+                .centerCrop()
+                .placeholder(R.drawable.no_image_placeholder)
+                .into(ivDish)
 
-        binding.tvNameItemDish.text = item.name
-        binding.tvPriceDish.text = String.format(
-            context.getString(R.string.price),
-            item.price
-        )
-        binding.tvWeightDish.text = String.format(
-            context.getString(R.string.weight),
-            item.weight
-        )
-        binding.layoutCounter.tvCounter.text = item.count.toString()
+            tvNameItemDish.text = item.name
+            tvPriceDish.text = String.format(
+                context.getString(R.string.price),
+                item.price
+            )
+            tvWeightDish.text = String.format(
+                context.getString(R.string.weight),
+                item.weight
+            )
+            layoutCounter.tvCounter.text = item.count.toString()
 
-        binding.layoutCounter.btnPlus.setOnClickListener {
-            clickPlusCount?.invoke(item)
+            layoutCounter.btnPlus.setOnClickListener {
+                clickPlusCount?.invoke(item)
+            }
+            layoutCounter.btnMinus.setOnClickListener {
+                clickMinusCount?.invoke(item)
+            }
         }
-        binding.layoutCounter.btnMinus.setOnClickListener {
-            clickMinusCount?.invoke(item)
-        }
+
+
+
+
 
     }
 }

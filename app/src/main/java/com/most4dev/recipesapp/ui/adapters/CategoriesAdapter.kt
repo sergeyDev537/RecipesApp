@@ -18,12 +18,14 @@ class CategoriesAdapter :
         val root = binding.root
         val context = root.context
 
-        binding.tvNameCategory.text = item.name
+        binding.apply {
+            Glide.with(context).load(item?.imageUrl)
+                .centerCrop()
+                .placeholder(R.drawable.no_image_placeholder)
+                .into(ivCategory)
 
-        Glide.with(context).load(item?.imageUrl)
-            .centerCrop()
-            .placeholder(R.drawable.no_image_placeholder)
-            .into(binding.ivCategory)
+            tvNameCategory.text = item.name
+        }
 
         root.setOnClickListener {
             clickCategory?.invoke(item)
