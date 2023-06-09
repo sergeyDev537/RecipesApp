@@ -17,12 +17,14 @@ class DishAdapter : BaseAdapter<DishEntity, ItemDishBinding>(ItemDishBinding::in
         val root = binding.root
         val context = root.context
 
-        binding.tvNameDish.text = item.name
+        binding.apply {
+            Glide.with(context).load(item.image_url)
+                .centerInside()
+                .placeholder(R.drawable.no_image_placeholder)
+                .into(ivDish)
 
-        Glide.with(context).load(item.image_url)
-            .centerInside()
-            .placeholder(R.drawable.no_image_placeholder)
-            .into(binding.ivDish)
+            tvNameDish.text = item.name
+        }
 
         root.setOnClickListener {
             clickDish?.invoke(item)

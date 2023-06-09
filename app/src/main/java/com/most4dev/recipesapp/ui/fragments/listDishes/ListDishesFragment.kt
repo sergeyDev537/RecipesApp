@@ -2,6 +2,8 @@ package com.most4dev.recipesapp.ui.fragments.listDishes
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.most4dev.recipesapp.R
@@ -52,9 +54,11 @@ class ListDishesFragment : BaseFragment<FragmentListDishesBinding>(
     private fun ListDishesViewModel.setObserves() {
         listDishes.observe(viewLifecycleOwner) {
             dishAdapter.submitList(it)
+            binding.showDishesList()
         }
         listTags.observe(viewLifecycleOwner) {
             tagAdapter.submitList(it.toMutableList())
+            binding.showTagsList()
         }
         dishesError.observe(viewLifecycleOwner) {
             binding.root.showSnackbar(it)
@@ -81,6 +85,16 @@ class ListDishesFragment : BaseFragment<FragmentListDishesBinding>(
                 )
             }
         }
+    }
+
+    private fun FragmentListDishesBinding.showTagsList() {
+        pbListDishes.isGone = true
+        rvTags.isVisible = true
+    }
+
+    private fun FragmentListDishesBinding.showDishesList() {
+        pbListDishes.isGone = true
+        rvDishes.isVisible = true
     }
 
 }

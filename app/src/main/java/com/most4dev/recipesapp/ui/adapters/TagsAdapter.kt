@@ -33,7 +33,7 @@ class TagsAdapter : ListAdapter<TagEntity, TagViewHolder>(TagItemDiffCallback())
 
     override fun onBindViewHolder(holder: TagViewHolder, position: Int) {
         val item = getItem(position)
-        val binding = holder.binding as ViewBinding
+        val binding = holder.binding
         val root = binding.root
 
         root.setOnClickListener {
@@ -63,8 +63,6 @@ class TagsAdapter : ListAdapter<TagEntity, TagViewHolder>(TagItemDiffCallback())
     companion object {
         const val VIEW_TYPE_ENABLE = 0
         const val VIEW_TYPE_DISABLE = 1
-
-        const val MAX_POOL_SIZE = 15
     }
 
 }

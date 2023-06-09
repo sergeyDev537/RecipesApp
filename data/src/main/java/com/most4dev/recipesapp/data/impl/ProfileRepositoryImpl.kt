@@ -4,17 +4,26 @@ import android.Manifest
 import android.content.Context
 import android.content.pm.PackageManager
 import android.location.Geocoder
+import android.os.Looper
 import androidx.core.app.ActivityCompat
 import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationCallback
+import com.google.android.gms.location.LocationRequest
+import com.google.android.gms.location.LocationResult
+import com.google.android.gms.location.Priority
 import com.most4dev.recipesapp.data.R
 import com.most4dev.recipesapp.data.utils.getAddress
 import com.most4dev.recipesapp.domain.entities.ProfileEntity
 import com.most4dev.recipesapp.domain.repositories.ProfileRepository
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.suspendCancellableCoroutine
+import kotlinx.coroutines.withContext
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+import java.util.concurrent.TimeUnit
 import kotlin.coroutines.resume
+
 
 class ProfileRepositoryImpl(
     private val context: Context,
@@ -29,22 +38,36 @@ class ProfileRepositoryImpl(
 
     private suspend fun getCity(fusedLocationClient: FusedLocationProviderClient): String {
         var currentCity = context.getString(R.string.unknown_city)
-        val location = getLocation(fusedLocationClient)
+        var mainLooper: Looper? = null
+        withContext(Dispatchers.Main) {
+            mainLooper = Looper.myLooper()
+        }
+        val location = getLocation(fusedLocationClient, mainLooper)
         val geoCoder = Geocoder(context, Locale.getDefault())
+
         location?.let { currentLocation ->
             geoCoder.getAddress(
                 latitude = currentLocation.latitude,
                 longitude = currentLocation.longitude
             ) {
                 it?.let { address ->
-                    currentCity = address.locality
+                    currentCity = if (address.locality != null) {
+                        address.locality
+                    } else if (address.adminArea != null) {
+                        address.adminArea
+                    } else {
+                        context.getString(R.string.unknown_city)
+                    }
                 }
             }
         }
         return currentCity
     }
 
-    private suspend fun getLocation(fusedLocationClient: FusedLocationProviderClient) =
+    private suspend fun getLocation(
+        fusedLocationClient: FusedLocationProviderClient,
+        mainLooper: Looper?,
+    ) =
         suspendCancellableCoroutine { continuation ->
             if (ActivityCompat.checkSelfPermission(
                     context,
@@ -54,13 +77,25 @@ class ProfileRepositoryImpl(
                     Manifest.permission.ACCESS_COARSE_LOCATION
                 ) == PackageManager.PERMISSION_GRANTED
             ) {
-                fusedLocationClient.lastLocation
-                    .addOnSuccessListener {
-                        continuation.resume(it)
+
+                val locationRequest = LocationRequest.Builder(
+                    Priority.PRIORITY_HIGH_ACCURACY,
+                    TimeUnit.SECONDS.toMillis(3)
+                ).build()
+
+                val locationCallback = object : LocationCallback() {
+                    override fun onLocationResult(result: LocationResult) {
+                        result.lastLocation.run {
+                            val loc = this
+                            continuation.resume(this)
+                        }
+                        fusedLocationClient.removeLocationUpdates(this)
                     }
-                    .addOnFailureListener {
-                        continuation.resume(null)
-                    }
+                }
+
+                fusedLocationClient.requestLocationUpdates(
+                    locationRequest, locationCallback, mainLooper
+                )
             } else {
                 continuation.resume(null)
             }

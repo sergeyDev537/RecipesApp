@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Блюда</string>
+
+    <!--NAVIGATION-->
+    <string name="home">Главная</string>
+    <string name="search">Поиск</string>
+    <string name="cart">Корзина</string>
+    <string name="account">Аккаунт</string>
+    <string name="profile">Профиль</string>
+
+    <!--DISHES-->
+    <string name="add_to_cart">Добавить в корзину</string>
+    <string name="price">%1$s ₽</string>
+    <string name="weight">%1$s г</string>
+    <string name="add_favorite">Добавлено в избранное</string>
+    <string name="add_dish_to_cart">Добавлено в корзину</string>
+    <string name="dishes">Блюда</string>
+
+    <!--CART-->
+    <string name="payment_x_money">Оплатить %1$s ₽</string>
+
+
+    <!--CONTENT DESCRIPTION-->
+    <string name="cd_favorite">Add favorite</string>
+    <string name="cd_close">Close dialog</string>
+
+
+    <!--PERMISSIONS-->
+    <string name="permission_denied">Разрешения запрещены</string>
+
+    <!--ERRORS-->
+    <string name="not_found_element">Не найдено элемента</string>
+
+</resources>
