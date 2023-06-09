@@ -60,16 +60,7 @@ class MainActivity : AppCompatActivity(), UpdateToolbar {
     }
 
     private fun setupNavigation() {
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.nav_bottom_home,
-                R.id.nav_bottom_search,
-                R.id.nav_bottom_cart,
-                R.id.nav_bottom_account
-            )
-        )
         navigationViewBottom.setupWithNavController(navController)
-//        setupActionBarWithNavController(navController, appBarConfiguration)
     }
 
     private fun showLocationToolbar(currentCity: String, currentDate: String) {
