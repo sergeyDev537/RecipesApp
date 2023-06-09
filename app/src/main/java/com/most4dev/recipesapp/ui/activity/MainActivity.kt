@@ -108,7 +108,7 @@ class MainActivity : AppCompatActivity(), UpdateToolbar {
     override fun updateTypeToolbar(typeToolbar: TypeToolbar, title: String?, subTitle: String?) {
         when (typeToolbar) {
             TypeToolbar.LOCATION_TOOLBAR -> {
-//                showLocationToolbar()
+                showLocationToolbar("", "")
                 checkPermission(resultPermissionLauncher) {
                     getLocation()
                 }
