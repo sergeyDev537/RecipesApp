@@ -149,7 +149,7 @@ class MainActivity : AppCompatActivity(), UpdateToolbar {
 
     private fun getLocation() {
         val fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
-        viewModel.getCity(fusedLocationClient)
+        viewModel.getDataUser(fusedLocationClient)
     }
 
 }

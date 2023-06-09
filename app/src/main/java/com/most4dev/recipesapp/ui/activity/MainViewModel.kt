@@ -18,7 +18,7 @@ class MainViewModel(
     private var _profile = MutableLiveData<ProfileEntity>()
     val profile: LiveData<ProfileEntity> = _profile
 
-    fun getCity(fusedLocationClient: FusedLocationProviderClient) {
+    fun getDataUser(fusedLocationClient: FusedLocationProviderClient) {
         viewModelScope.launch(Dispatchers.IO) {
             _profile.postValue(getDataUserUseCase(fusedLocationClient) ?: EMPTY_PROFILE)
         }
