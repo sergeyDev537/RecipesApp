@@ -12,154 +12,155 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white">
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline_start"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:orientation="vertical"
-            app:layout_constraintGuide_begin="16dp" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline_end"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:orientation="vertical"
-            app:layout_constraintGuide_end="16dp" />
-
-        <androidx.appcompat.widget.AppCompatImageButton
-            android:id="@+id/btn_favorite"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:background="@color/back_tags"
-            android:contentDescription="@string/cd_favorite"
-            android:elevation="6dp"
-            android:src="@drawable/ic_favorite"
-            app:layout_constraintEnd_toStartOf="@+id/btn_close"
-            app:layout_constraintTop_toTopOf="@+id/iv_item_dish"
-            app:shapeAppearanceOverlay="@style/cornerImageView" />
-
-        <androidx.appcompat.widget.AppCompatImageButton
-            android:id="@+id/btn_close"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:background="@color/back_tags"
-            android:contentDescription="@string/cd_close"
-            android:elevation="6dp"
-            android:src="@drawable/ic_close"
-            app:layout_constraintEnd_toEndOf="@id/guideline_end"
-            app:layout_constraintTop_toTopOf="@+id/iv_item_dish"
-            app:shapeAppearanceOverlay="@style/cornerImageView" />
-
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/iv_item_dish"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="240dp"
-            android:layout_marginTop="16dp"
-            android:background="@color/back_tags"
-            app:layout_constraintEnd_toEndOf="@id/guideline_end"
-            app:layout_constraintStart_toStartOf="@id/guideline_start"
-            app:layout_constraintTop_toTopOf="parent"
-            app:shapeAppearanceOverlay="@style/cornerImageView" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tv_name_item_dish"
-            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/sf_pro"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="@id/guideline_end"
-            app:layout_constraintStart_toStartOf="@id/guideline_start"
-            app:layout_constraintTop_toBottomOf="@id/iv_item_dish"
-            tools:text="Рис с овощами" />
+            android:background="@color/white">
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tv_price_dish"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/sf_pro"
-            android:textColor="@color/black"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="@id/guideline_start"
-            app:layout_constraintTop_toBottomOf="@id/tv_name_item_dish"
-            tools:text="599" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_start"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="16dp" />
 
-        <View
-            android:id="@+id/view_dot"
-            android:layout_width="3dp"
-            android:layout_height="3dp"
-            android:layout_marginStart="2dp"
-            android:background="@drawable/dot"
-            app:layout_constraintBottom_toBottomOf="@id/tv_price_dish"
-            app:layout_constraintStart_toEndOf="@id/tv_price_dish"
-            app:layout_constraintTop_toTopOf="@id/tv_price_dish" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_end"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="16dp" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tv_weight_dish"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="2dp"
-            android:fontFamily="@font/sf_pro"
-            android:textColor="@color/weight"
-            android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="@id/tv_price_dish"
-            app:layout_constraintStart_toEndOf="@id/view_dot"
-            app:layout_constraintTop_toTopOf="@id/tv_price_dish"
-            tools:text="599" />
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btn_favorite"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@color/back_tags"
+                android:contentDescription="@string/cd_favorite"
+                android:elevation="6dp"
+                android:src="@drawable/ic_favorite"
+                app:layout_constraintEnd_toStartOf="@+id/btn_close"
+                app:layout_constraintTop_toTopOf="@+id/iv_item_dish"
+                app:shapeAppearanceOverlay="@style/cornerImageView" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tv_desc_item_dish"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/sf_pro"
-            android:textColor="@color/black_65"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="@id/guideline_end"
-            app:layout_constraintStart_toStartOf="@id/guideline_start"
-            app:layout_constraintTop_toBottomOf="@id/tv_price_dish"
-            tools:text="@tools:sample/lorem/random" />
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btn_close"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@color/back_tags"
+                android:contentDescription="@string/cd_close"
+                android:elevation="6dp"
+                android:src="@drawable/ic_close"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                app:layout_constraintTop_toTopOf="@+id/iv_item_dish"
+                app:shapeAppearanceOverlay="@style/cornerImageView" />
 
-        <ProgressBar
-            android:id="@+id/pb_add_cart_dish"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="2dp"
-            android:elevation="5dp"
-            android:indeterminateTint="@color/white"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="@id/btn_add_to_cart"
-            app:layout_constraintEnd_toEndOf="@id/btn_add_to_cart"
-            app:layout_constraintStart_toStartOf="@id/btn_add_to_cart"
-            app:layout_constraintTop_toTopOf="@id/btn_add_to_cart" />
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/iv_item_dish"
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/back_tags"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/cornerImageView" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_add_to_cart"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:text="@string/add_to_cart"
-            android:textSize="16sp"
-            app:cornerRadius="8dp"
-            app:backgroundTint="@color/back_category"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@id/guideline_end"
-            app:layout_constraintStart_toStartOf="@id/guideline_start"
-            app:layout_constraintTop_toBottomOf="@id/tv_desc_item_dish" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_name_item_dish"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/sf_pro"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/iv_item_dish"
+                tools:text="Рис с овощами" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_price_dish"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/sf_pro"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/tv_name_item_dish"
+                tools:text="599" />
+
+            <View
+                android:id="@+id/view_dot"
+                android:layout_width="3dp"
+                android:layout_height="3dp"
+                android:layout_marginStart="2dp"
+                android:background="@drawable/dot"
+                app:layout_constraintBottom_toBottomOf="@id/tv_price_dish"
+                app:layout_constraintStart_toEndOf="@id/tv_price_dish"
+                app:layout_constraintTop_toTopOf="@id/tv_price_dish" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_weight_dish"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:fontFamily="@font/sf_pro"
+                android:textColor="@color/weight"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@id/tv_price_dish"
+                app:layout_constraintStart_toEndOf="@id/view_dot"
+                app:layout_constraintTop_toTopOf="@id/tv_price_dish"
+                tools:text="599" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_desc_item_dish"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/sf_pro"
+                android:textColor="@color/black_65"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/tv_price_dish"
+                tools:text="@tools:sample/lorem/random" />
+
+            <ProgressBar
+                android:id="@+id/pb_add_cart_dish"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:elevation="5dp"
+                android:indeterminateTint="@color/white"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/btn_add_to_cart"
+                app:layout_constraintEnd_toEndOf="@id/btn_add_to_cart"
+                app:layout_constraintStart_toStartOf="@id/btn_add_to_cart"
+                app:layout_constraintTop_toTopOf="@id/btn_add_to_cart" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_add_to_cart"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/sf_pro"
+                android:text="@string/add_to_cart"
+                android:textSize="16sp"
+                app:backgroundTint="@color/back_category"
+                app:cornerRadius="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/tv_desc_item_dish" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
 
