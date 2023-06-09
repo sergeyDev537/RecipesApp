@@ -129,7 +129,7 @@
                 app:layout_constraintEnd_toEndOf="@id/guideline_end"
                 app:layout_constraintStart_toStartOf="@id/guideline_start"
                 app:layout_constraintTop_toBottomOf="@id/tv_price_dish"
-                tools:text="@tools:sample/lorem/random" />
+                tools:text="@tools:sample/lorem" />
 
             <ProgressBar
                 android:id="@+id/pb_add_cart_dish"
@@ -151,6 +151,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 android:fontFamily="@font/sf_pro"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
                 android:text="@string/add_to_cart"
                 android:textSize="16sp"
                 app:backgroundTint="@color/back_category"
